@@ -11,7 +11,7 @@
  *   --unprocessed: Only process emails that don't have ledger entries
  */
 
-import { batchProcessPdfUrls } from '../src/lib/pdfAmountExtractor';
+import { batchProcessPdfUrls } from '../src/lib/batchPdfProcessor';
 import { supabase } from '../src/lib/supabase';
 
 async function main() {

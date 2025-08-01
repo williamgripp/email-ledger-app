@@ -12,14 +12,12 @@ interface LedgerTableProps {
 export default function LedgerTable({ onRefresh }: LedgerTableProps) {
   const [entries, setEntries] = useState<TransactionLedgerEntry[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     // Load ledger entries using the API endpoint (which uses transaction_ledger view)
     const loadLedgerEntries = async () => {
       try {
         setLoading(true);
-        setError(null);
         const response = await fetch('/api/ledger');
         
         if (!response.ok) {
@@ -30,7 +28,6 @@ export default function LedgerTable({ onRefresh }: LedgerTableProps) {
         setEntries(data || []);
       } catch (error) {
         console.error('Error loading ledger entries:', error);
-        setError(error instanceof Error ? error.message : 'Failed to load entries');
         setEntries([]);
       } finally {
         setLoading(false);

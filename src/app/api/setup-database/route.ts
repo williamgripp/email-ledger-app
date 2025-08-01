@@ -3,23 +3,6 @@ import { supabase } from '@/lib/supabase';
 import { generateRandomEmail } from '@/lib/emailGenerator';
 import { generateRandomInvoiceData, generatePDFInvoice } from '@/lib/pdfGenerator';
 
-// Helper function to extract vendor name from email domain
-function extractVendor(email: string): string {
-  try {
-    const domain = email.split('@')[1];
-    if (!domain) return 'Unknown';
-    
-    // Remove common TLDs and get the main domain
-    const domainParts = domain.split('.');
-    const mainDomain = domainParts[0];
-    
-    // Capitalize first letter
-    return mainDomain.charAt(0).toUpperCase() + mainDomain.slice(1);
-  } catch {
-    return 'Unknown';
-  }
-}
-
 export async function POST() {
   try {
     console.log('🔄 Setting up database with sample data...');
