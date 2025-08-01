@@ -28,7 +28,7 @@ A modern React application built with Next.js for processing emails with PDF rec
 
 - **Frontend**: Next.js 15 with App Router, React, TypeScript
 - **Styling**: Tailwind CSS for responsive design
-- **Database**: SQLite with Prisma ORM
+- **Database**: Supabase for data storage
 - **File Processing**: CSV parsing with Papa Parse
 - **PDF Processing**: Built-in PDF parsing capabilities (ready for pdf-parse integration)
 - **Icons**: Lucide React
@@ -53,11 +53,12 @@ cd minerva
 npm install
 ```
 
-3. Set up the database:
+3. Set up environment variables:
 ```bash
-npx prisma generate
-npx prisma db push
+cp .env.example .env
 ```
+
+Add your Supabase credentials to `.env`
 
 4. Start the development server:
 ```bash
@@ -110,9 +111,7 @@ src/
 │   ├── BankStatementUpload.tsx
 │   └── Navigation.tsx
 ├── lib/
-│   └── prisma.ts      # Database client
-└── prisma/
-    └── schema.prisma  # Database schema
+│   └── supabase.ts    # Database client
 ```
 
 ## API Endpoints
@@ -150,9 +149,8 @@ npm install pdf-parse @types/pdf-parse
 
 ### Database Updates
 ```bash
-# After schema changes
-npx prisma generate
-npx prisma db push
+# Database managed through Supabase dashboard
+# or SQL migrations
 ```
 
 ### Production Build

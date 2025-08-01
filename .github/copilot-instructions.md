@@ -7,7 +7,7 @@ This is a Next.js React application for email processing and bank reconciliation
 ## Project Structure
 - **Page 1 (Emails)**: Display emails with PDF receipt attachments and process them
 - **Page 2 (Ledger)**: Show parsed transactions and allow CSV bank statement uploads for comparison
-- **Database**: SQLite with Prisma for storing ledger entries
+- **Database**: Supabase for storing ledger entries
 - **PDF Processing**: Extract transaction details from receipt PDFs
 - **CSV Upload**: Process bank statements for transaction matching
 
@@ -23,8 +23,7 @@ This is a Next.js React application for email processing and bank reconciliation
 - Next.js 15 with App Router
 - TypeScript
 - Tailwind CSS
-- Prisma ORM
-- SQLite database
+- Supabase database
 - PDF parsing libraries
 - File upload handling
 
@@ -32,6 +31,6 @@ When generating code, focus on:
 - Type safety with TypeScript
 - Responsive design with Tailwind CSS
 - Proper error handling
-- Database operations with Prisma
+- Database operations with Supabase
 - File processing capabilities
 - Clean component architecture
